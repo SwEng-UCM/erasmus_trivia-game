@@ -50,7 +50,7 @@
 - **Personal strengths:** thoughtful, always active, gets things done 
 - **Personal areas of growth:** collaboration / working with others  
 - **Fun fact:** Can speak 6 languages
-- **GitHub:** `leopopper`  
+- **GitHub:** `Kang-Hsi`  
 
 ### Elena-Thea Ungureanu
 - **Responsibility:** takes care of the brainstorming  
