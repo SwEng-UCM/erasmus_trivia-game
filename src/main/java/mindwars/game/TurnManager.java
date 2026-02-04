@@ -1,0 +1,36 @@
+//AI-generated (ChatGPT) then reviewed by human
+
+package mindwars.game;
+
+import mindwars.player.Player;
+
+//import java.util.List;
+
+/**
+ * PURPOSE:
+ * - Handles turn order (“whose turn is it?”) so GameEngine stays readable.
+ * - Encapsulates the logic for advancing to the next player.
+ *
+ * @TODO (MVP):
+ * - getCurrentPlayer(): return state.players[state.currentPlayerIndex]
+ * - advanceTurn(): increment index and wrap around (mod player count)
+ *
+ * @TODO (optional later):
+ * - Methods for special rounds, steal-turn mechanics, etc.
+ */
+public class TurnManager {
+    private final GameState state;
+
+    public TurnManager(GameState state) {
+        this.state = state;
+    }
+
+    public Player getCurrentPlayer() {
+        // @TODO
+        return null;
+    }
+
+    public void advanceTurn() {
+        // @TODO
+    }
+}
