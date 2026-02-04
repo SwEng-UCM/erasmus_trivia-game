@@ -1,5 +1,4 @@
-// File: src/main/java/mindwars/game/GameState.java
-// AI TAG: AI-generated (ChatGPT)
+//AI-generated (ChatGPT) then reviewed by human
 
 package mindwars.game;
 

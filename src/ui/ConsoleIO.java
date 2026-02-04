@@ -1,5 +1,4 @@
-// File: src/main/java/mindwars/ui/ConsoleIO.java
-// AI TAG: AI-generated (ChatGPT)
+//AI-generated (ChatGPT) then reviewed by human
 
 package mindwars.ui;
 
