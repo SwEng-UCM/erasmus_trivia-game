@@ -14,7 +14,7 @@ A multiplayer trivia game where players answer knowledge-based questions to gain
 ## Project structure
 
 ```text
-src/main/java/mindwars/
+src/
 ├─ Main.java                     # Entry point (wires everything and starts the game)
 │
 ├─ game/                         # Core game flow + state management
