@@ -1,39 +1,41 @@
-//AI-generated (ChatGPT) then reviewed by human
+package game;
 
-package mindwars.game;
-
-import mindwars.player.Player;
-
+import player.Player;
+import java.util.ArrayList;
 import java.util.List;
 
-/**
- * PURPOSE:
- * - Stores the evolving state of the game while it runs.
- * - Data-only (should not print / read input).
- *
- * @TODO (MVP fields):
- * - List<Player> players
- * - int roundNumber
- * - int currentPlayerIndex
- *
- * @TODO (methods):
- * - getters/setters OR safe helper methods (recommended):
- *   - getPlayers()
- *   - getRoundNumber(), setRoundNumber(...)
- *   - getCurrentPlayerIndex(), setCurrentPlayerIndex(...)
- *
- * @TODO (quality):
- * - Ensure the players list is not null once set.
- * - Prefer returning read-only views if possible (later improvement).
- */
 public class GameState {
     private List<Player> players;
     private int roundNumber;
     private int currentPlayerIndex;
 
     public GameState() {
-        // @TODO initialize defaults (roundNumber=1, currentPlayerIndex=0)
+        this.players = new ArrayList<>();
+        this.roundNumber = 1;
+        this.currentPlayerIndex = 0;
     }
 
-    // @TODO getters/setters
+    public void addPlayer(Player player) {
+        this.players.add(player);
+    }
+
+    public List<Player> getPlayers() {
+        return players;
+    }
+
+    public int getRoundNumber() {
+        return roundNumber;
+    }
+
+    public void setRoundNumber(int roundNumber) {
+        this.roundNumber = roundNumber;
+    }
+
+    public int getCurrentPlayerIndex() {
+        return currentPlayerIndex;
+    }
+
+    public void setCurrentPlayerIndex(int index) {
+        this.currentPlayerIndex = index;
+    }
 }

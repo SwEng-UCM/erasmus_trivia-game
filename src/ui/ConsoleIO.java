@@ -1,50 +1,53 @@
-//AI-generated (ChatGPT) then reviewed by human
-
-package mindwars.ui;
+package ui;
 
 import java.util.Scanner;
 
-/**
- * PURPOSE:
- * - The only class allowed to interact with the console (System.in/out).
- * - Provides safe input helpers so the rest of the code never crashes on bad input.
- *
- * @TODO (MVP):
- * - Internally use Scanner or BufferedReader (Scanner is easiest).
- * - Implement:
- *   - println(String)
- *   - readLine(String prompt)
- *   - readNonEmptyString(String prompt): keep prompting until not empty
- *   - readIntInRange(String prompt, min, max): keep prompting until valid int in range
- *
- * @TODO (quality):
- * - Normalize inputs where relevant (trim).
- * - Never throw exceptions to caller (handle & re-prompt internally).
- */
 public class ConsoleIO {
 
-    // @TODO: private final Scanner scanner = new Scanner(System.in);
+    private final Scanner scanner;
 
     public ConsoleIO() {
-        // @TODO initialize scanner/reader
+        this.scanner = new Scanner(System.in);
     }
 
     public void println(String s) {
-        // @TODO
+        System.out.println(s);
     }
 
     public String readLine(String prompt) {
-        // @TODO
-        return "";
+        System.out.println(prompt);
+        System.out.print("> ");
+        return scanner.nextLine().trim();
     }
 
     public String readNonEmptyString(String prompt) {
-        // @TODO
-        return "";
+        String input = "";
+        while (input.isEmpty()) {
+            input = readLine(prompt);
+            if (input.isEmpty()) {
+                println("Error: Input cannot be empty. Please try again.");
+            }
+        }
+        return input;
     }
 
+    // helper function to safely read a number in a range (useful for choosing how
+    // many rounds the players want to play)
     public int readIntInRange(String prompt, int minInclusive, int maxInclusive) {
-        // @TODO
-        return 0;
+        int result;
+        while (true) {
+            String input = readLine(prompt);
+            try {
+                result = Integer.parseInt(input);
+                if (result >= minInclusive && result <= maxInclusive) {
+                    break;
+                } else {
+                    println("Please enter a number between " + minInclusive + " and " + maxInclusive + ".");
+                }
+            } catch (NumberFormatException e) {
+                println("Invalid input. Please enter a valid number.");
+            }
+        }
+        return result;
     }
 }

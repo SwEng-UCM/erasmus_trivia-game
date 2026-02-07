@@ -1,31 +1,23 @@
-//AI-generated (ChatGPT) then reviewed by human
+package player;
 
-package mindwars.player;
-
-/**
- * PURPOSE:
- * - Represents a human player.
- * - Holds player-specific data (name, score).
- *
- * @TODO (MVP):
- * - Fields:
- *   - String name
- *   - int score
- * - Constructor:
- *   - Player(String name) initializes score = 0
- * - Methods:
- *   - getName(), getScore()
- *   - addScore(int delta) (delta can be positive/negative)
- *
- * @TODO (optional later):
- * - Track territories owned, streak, stats, etc.
- */
 public class Player {
-    // @TODO fields
+    private String name;
+    private int score;
 
-    public Player() {
-        // @TODO replace with Player(String name)
+    public Player(String name) {
+        this.name = name;
+        this.score = 0;
     }
 
-    // @TODO methods
+    public String getName() {
+        return name;
+    }
+
+    public int getScore() {
+        return score;
+    }
+
+    public void addScore(int points) {
+        this.score += points;
+    }
 }

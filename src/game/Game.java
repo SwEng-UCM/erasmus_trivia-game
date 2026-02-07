@@ -1,53 +1,49 @@
-//AI-generated (ChatGPT) then reviewed by human
+package game;
 
-package mindwars.game;
+import ui.ConsoleIO;
+import trivia.QuestionBank;
+import player.Player;
 
-import mindwars.trivia.AnswerValidator;
-import mindwars.trivia.Question;
-import mindwars.trivia.QuestionBank;
-import mindwars.ui.ConsoleIO;
-
-/**
- * PURPOSE:
- * - Orchestrates the whole game flow (setup → rounds/turns → end).
- * - Calls into UI (ConsoleIO) for input/output.
- * - Requests questions from QuestionBank and checks answers using AnswerValidator.
- *
- * @TODO (MVP):
- * 1) Setup:
- *    - Ask number of players (2 now, allow 3–4).
- *    - Ask each player's name.
- *    - Create GameState + TurnManager + AnswerValidator.
- * 2) Gameplay:
- *    - Loop for N rounds (choose a constant like 5/10 for now).
- *    - For each player turn:
- *      - Get next question from QuestionBank.
- *      - Print question (q.formatForConsole()).
- *      - Read player answer.
- *      - Validate with AnswerValidator.
- *      - If correct: add points to the player (e.g., +10).
- * 3) End:
- *    - Print scoreboard.
- *    - Compute winner with WinnerCalculator.
- *
- * @TODO (Rules hygiene):
- * - Do not read input directly from System.in here (only ConsoleIO).
- * - Do not hardcode question lists here (QuestionBank owns that).
- */
 public class Game {
     private final ConsoleIO io;
     private final QuestionBank questionBank;
+    private final GameState gameState;
 
     public Game(ConsoleIO io, QuestionBank questionBank) {
         this.io = io;
         this.questionBank = questionBank;
+        this.gameState = new GameState();
     }
 
     public void run() {
-        //@TODO implement full MVP loop
+        printWelcomeMessage();
+        setupPlayers();
+
+        setStartingPlayer();
+
+        io.println("\nSetup Complete!");
+        io.println("Registered players: " + gameState.getPlayers().size());
+        io.println("Game rounds logic coming soon...");
     }
 
-    // Optional helpers you can create:
-    // private void setupPlayers(GameState state) { ... }
-    // private void playTurn(GameState state, TurnManager tm, AnswerValidator v) { ... }
+    private void printWelcomeMessage() {
+        io.println("WELCOME TO MINDWARS TRIVIA!");
+    }
+
+    private void setupPlayers() {
+        io.println("\nThe game requires 2 players.");
+        for (int i = 1; i <= 2; i++) {
+            String name = io.readNonEmptyString("Enter name for Player " + i + ":");
+            Player newPlayer = new Player(name);
+            gameState.addPlayer(newPlayer);
+            io.println("Hello, " + name + "! You have joined the game.");
+        }
+    }
+
+    private void setStartingPlayer() {
+        gameState.setCurrentPlayerIndex(0);
+
+        String startName = gameState.getPlayers().get(0).getName();
+        io.println("\n" + startName + " (Player 1) will start the game!");
+    }
 }
